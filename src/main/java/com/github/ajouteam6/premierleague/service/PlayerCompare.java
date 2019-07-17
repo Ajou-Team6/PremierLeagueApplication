@@ -1,6 +1,6 @@
 package com.github.ajouteam6.premierleague.service;
 
-import com.github.ajouteam6.premierleague.domain.Player;
+import com.github.ajouteam6.premierleague.domain.player.Player;
 import lombok.Builder;
 import lombok.Data;
 
