@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 //명수
 public class AttackStatsSort {
-
+    // 명수 - 득점 개수 기준 정렬
     public void sortByPlayerScores(Player[] playerList,int sortSelect){
         if(sortSelect==0)  Arrays.sort(playerList,this::compareByGoalsDescend);
         else Arrays.sort(playerList,this::compareByGoalsAscend);
@@ -16,6 +16,7 @@ public class AttackStatsSort {
                     players.getAttackStats().getGoals());
         }
     }
+    // 명수 - 어시스트 개수 기준 정렬
     public void sortByPlayerAsssits(Player[] playerList,int sortSelect){
         if(sortSelect==0)  Arrays.sort(playerList,this::compareByAssistsDescend);
         else Arrays.sort(playerList,this::compareByAssistsAscend);
@@ -24,7 +25,7 @@ public class AttackStatsSort {
                     players.getAttackStats().getAssists());
         }
     }
-
+    // 명수 - 슈팅 개수 기준 정렬
     public void sortByPlayerShots(Player[] playerList, int sortSelect){
         if(sortSelect==0)  Arrays.sort(playerList,this::compareByShotsDescend);
         else Arrays.sort(playerList,this::compareByShotsAscend);
@@ -33,7 +34,7 @@ public class AttackStatsSort {
                     players.getAttackStats().getShots());
         }
     }
-
+    // 명수 - 유효슈팅 개수 기준 정렬
     public void sortByPlayerShotsOnTarget(Player[] playerList,int sortSelect){
         if(sortSelect==0)  Arrays.sort(playerList,this::compareByShotsOnTargetDescend);
         else Arrays.sort(playerList,this::compareByShotsOnTargetAscend);
@@ -42,7 +43,7 @@ public class AttackStatsSort {
                     players.getAttackStats().getShotsOnTarget());
         }
     }
-
+    // 명수 - 패스개수 기준 정렬
     public void sortByPlayerPasses(Player[] playerList,int sortSelect){
         if(sortSelect==0)  Arrays.sort(playerList,this::compareByPassesDescend);
         else Arrays.sort(playerList,this::compareByPassesAscend);
