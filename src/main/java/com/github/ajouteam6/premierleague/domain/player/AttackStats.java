@@ -1,15 +1,15 @@
-package com.github.ajouteam6.premierleague.domain;
+package com.github.ajouteam6.premierleague.domain.player;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
+
 //명수
 @Data
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class AttackStats {
     private int goals;
     private int assists;
     private int shots;
     private int shotsOnTarget;
-    private int mostPasses;
+    private int passes;
 }
