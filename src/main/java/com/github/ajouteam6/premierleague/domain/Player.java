@@ -3,6 +3,7 @@ package com.github.ajouteam6.premierleague.domain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 //연호
 @AllArgsConstructor
@@ -14,6 +15,7 @@ public class Player {
     private AttackStats attackStats;
     private DefenceStats defenceStats;
 
+    @AllArgsConstructor
     @Data
     public static class PersonalDetails {
         private String name;
@@ -24,6 +26,7 @@ public class Player {
         private int age;
     }
 
+    @AllArgsConstructor
     @Data
     public static class AttackStats {
         private int goals;
@@ -33,6 +36,7 @@ public class Player {
         private int mostPasses;
     }
 
+    @AllArgsConstructor
     @Data
     public static class DefenceStats {
         private int cleanSheets;
