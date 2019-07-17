@@ -1,5 +1,9 @@
-package com.github.ajouteam6.premierleague.domain.player;
+package com.github.ajouteam6.premierleague.domain.player.player;
 
+import com.github.ajouteam6.premierleague.domain.player.AttackStats;
+import com.github.ajouteam6.premierleague.domain.player.DefenceStats;
+import com.github.ajouteam6.premierleague.domain.player.PersonalDetails;
+import com.github.ajouteam6.premierleague.domain.player.Player;
 import org.junit.Before;
 import org.junit.Test;
 
