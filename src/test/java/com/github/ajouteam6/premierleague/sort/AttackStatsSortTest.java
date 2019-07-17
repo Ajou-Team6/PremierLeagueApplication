@@ -51,6 +51,7 @@ public class AttackStatsSortTest {
         playerList[3]=Alexander_Lacazette;
         playerList[4]=Alexis_Sanchez;
     }
+    // 명수 - 득점 개수 기준 정렬 테스트
     @Test
     public void 득점순위가_내림차순이_아니면_에러() {
         AttackStatsSort attackStatsSort = new AttackStatsSort();
@@ -68,6 +69,7 @@ public class AttackStatsSortTest {
         }
     }
 
+    // 명수 - 어시스트 개수 기준 정렬 테스트
     @Test
     public void 어시스트_순위가_내림차순이_아니면_에러() {
         AttackStatsSort attackStatsSort = new AttackStatsSort();
@@ -85,7 +87,7 @@ public class AttackStatsSortTest {
         }
     }
 
-
+    // 명수 - 슈팅 개수 기준 정렬 테스트
     @Test
     public void 슈팅개수_순위가_내림차순이_아니면_에러(){
         AttackStatsSort attackStatsSort = new AttackStatsSort();
@@ -103,6 +105,7 @@ public class AttackStatsSortTest {
         }
     }
 
+    // 명수 - 유효슈팅 개수 기준 정렬 테스트
     @Test
     public void 유효슈팅개수_순위가_내림차순이_아니면_에러(){
         AttackStatsSort attackStatsSort = new AttackStatsSort();
@@ -120,6 +123,7 @@ public class AttackStatsSortTest {
         }
     }
 
+    // 명수 - 패스 개수 기준 정렬 테스트
     @Test
     public void 패스개수_순위가_내림차순이_아니면_에러(){
         AttackStatsSort attackStatsSort = new AttackStatsSort();
