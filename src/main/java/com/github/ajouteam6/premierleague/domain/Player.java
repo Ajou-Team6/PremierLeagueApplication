@@ -1,10 +1,18 @@
 package com.github.ajouteam6.premierleague.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 //연호
+@AllArgsConstructor
+@Builder
 @Data
 public class Player {
+
+    private PersonalDetails personalDetails;
+    private AttackStats attackStats;
+    private DefenceStats defenceStats;
 
     @Data
     public static class PersonalDetails {
