@@ -4,10 +4,13 @@ import com.github.ajouteam6.premierleague.domain.player.Player;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.Comparator;
+
 // 종인
 @Builder
 @Data
 public class PlayerCompare {
+
 
     // Condition 0은 내림차순, 1은 오름차순
     // Goal
@@ -16,7 +19,6 @@ public class PlayerCompare {
         if(isDescendingOrder(condition)) return secondPlayer.getAttackStats().getGoals() - firstPlayer.getAttackStats().getGoals();
         return firstPlayer.getAttackStats().getGoals() - secondPlayer.getAttackStats().getGoals();
     }
-
     // Assist
     public int twoPlayerCompareByAssist(Player firstPlayer, Player secondPlayer, int condition) {
         logCompareMethods("Assist: ", firstPlayer, secondPlayer, firstPlayer.getAttackStats().getAssists(), secondPlayer.getAttackStats().getAssists());
