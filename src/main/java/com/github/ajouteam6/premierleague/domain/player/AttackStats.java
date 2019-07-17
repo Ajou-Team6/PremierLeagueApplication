@@ -1,4 +1,4 @@
-package com.github.ajouteam6.premierleague.domain;
+package com.github.ajouteam6.premierleague.domain.player;
 
 import lombok.*;
 //명수
