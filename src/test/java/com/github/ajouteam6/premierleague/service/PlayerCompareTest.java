@@ -3,7 +3,8 @@ package com.github.ajouteam6.premierleague.service;
 import com.github.ajouteam6.premierleague.domain.Player;
 import lombok.extern.log4j.Log4j;
 import org.junit.Test;
-import sun.rmi.runtime.Log;
+import org.junit.runner.RunWith;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.sameInstance;
@@ -11,6 +12,7 @@ import static org.junit.Assert.assertThat;
 
 // 종인
 @Log4j
+@RunWith(MockitoJUnitRunner.class)
 public class PlayerCompareTest {
     PlayerCompare playerCompare = PlayerCompare.builder().build();
 
@@ -29,7 +31,6 @@ public class PlayerCompareTest {
     @Test
     public void twoPlayerCompareByGoalTest() {
         assertThat(playerCompare.twoPlayerCompareByGoal(Heungmin_Son, Harry_kane), sameInstance(Harry_kane));
-
     }
 
     @Test

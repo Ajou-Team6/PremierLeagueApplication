@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 
 //연호
 @AllArgsConstructor
-@Builder
 @Data
+@Builder
 public class Player {
 
     private PersonalDetails personalDetails;
@@ -17,17 +17,20 @@ public class Player {
 
     @AllArgsConstructor
     @Data
+    @Builder
     public static class PersonalDetails {
         private String name;
         private String team;
         private int backNumber;
         private String position;
-        private String country;
+        private String nationality;
         private int age;
+        private int height;
     }
 
     @AllArgsConstructor
     @Data
+    @Builder
     public static class AttackStats {
         private int goals;
         private int assists;
@@ -38,6 +41,7 @@ public class Player {
 
     @AllArgsConstructor
     @Data
+    @Builder
     public static class DefenceStats {
         private int cleanSheets;
         private int tackles;
