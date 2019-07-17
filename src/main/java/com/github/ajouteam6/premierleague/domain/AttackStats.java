@@ -11,5 +11,5 @@ public class AttackStats {
     private int assists;
     private int shots;
     private int shotsOnTarget;
-    private int mostPasses;
+    private int passes;
 }
