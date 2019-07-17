@@ -9,12 +9,10 @@ import lombok.NoArgsConstructor;
 // 주호
 @Data
 @Builder
-
+@AllArgsConstructor
 @NoArgsConstructor
 
 public class TeamSquadList {
-    @AllArgsConstructor
-    static class squadList {
-        String player;
-    }
+
+    private String player;
 }

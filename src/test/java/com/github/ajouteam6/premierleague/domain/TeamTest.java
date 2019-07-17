@@ -7,25 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.Matchers.*;
-import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 //주호
 public class TeamTest {
-    private List<Team> playerList = new ArrayList<Team>();
+    private List<Team> TeamList = new ArrayList<Team>();
 
     //test 전에 실행
     @Before
     public void setUp() {
         Team striker = new Team();
-        Team midFielder = new Team();
-        Team goalKeeper = new Team();
-        Team wingBack = new Team();
 
-        striker.setTeamStat(new TeamStat.teamStat(
+        striker.setTeamStat(new TeamStat(
                 1,
-                1,
+                6,
                 3,
                 2,
                 1,
@@ -33,40 +28,43 @@ public class TeamTest {
                 3,
                 5));
 
-        striker.setOverView(new TeamOverView.overView(
+        striker.setOverView(new TeamOverView(
                 "2019,7,17,",
                 "korea",
                 "Test",
                 "주호",
                 "Blue"));
 
-        striker.setSquadList(new TeamSquadList.squadList(
+        striker.setSquadList(new TeamSquadList(
                 "박주호"
         ));
+
+        TeamList.add(striker);
     }
 
     // 주호..
     @Test
     public void TeamStat에_모든_변수에_숫자가_들어갈_경우_True() {
         Team ManchesterUnited = new Team();
-        ManchesterUnited.setTeamStat(new TeamStat.teamStat(
-                1,
-                1,
+        ManchesterUnited.setTeamStat(new TeamStat(
+                5,
+                10,
+                5,
                 3,
                 2,
-                1,
                 15,
                 3,
                 5
         ));
 
-        isStringNumManchesterUnited.getTeamStat().position
-        System.out.println(ManchesterUnited.getTeamStat().position);
-//        assertThat("class java.lang.String",is(ManchesterUnited.getOverView().foundationYear.getClass().toString()));
-//        assertThat("class java.lang.String",is(ManchesterUnited.getOverView().anchorage.getClass().toString()));
-//        assertThat("class java.lang.String",is(ManchesterUnited.getOverView().teamName.getClass().toString()));
-//        assertThat("class java.lang.String",is(ManchesterUnited.getOverView().directorName.getClass().toString()));
-//        assertThat("class java.lang.String",is(ManchesterUnited.getOverView().teamColor.getClass().toString()));
+        assertThat(ManchesterUnited.getTeamStat().getPosition(), instanceOf(Integer.class));
+        assertThat(ManchesterUnited.getTeamStat().getPlayCount(), instanceOf(Integer.class));
+        assertThat(ManchesterUnited.getTeamStat().getWin(), instanceOf(Integer.class));
+        assertThat(ManchesterUnited.getTeamStat().getDraw(), instanceOf(Integer.class));
+        assertThat(ManchesterUnited.getTeamStat().getLoss(), instanceOf(Integer.class));
+        assertThat(ManchesterUnited.getTeamStat().getGoal(), instanceOf(Integer.class));
+        assertThat(ManchesterUnited.getTeamStat().getDifference(), instanceOf(Integer.class));
+        assertThat(ManchesterUnited.getTeamStat().getPoints(), instanceOf(Integer.class));
 
     }
 
@@ -75,30 +73,62 @@ public class TeamTest {
     @Test
     public void OverView에_모든_변수에_문자가_들어갈_경우_True() {
         Team Barcelona = new Team();
-        Barcelona.setOverView(new TeamOverView.overView(
-                "2019,7,17,",
-                "korea",
-                "Test",
-                "주호",
-                "Blue"
+        Barcelona.setOverView(new TeamOverView(
+                "2019,7,18,",
+                "America",
+                "Zion.t",
+                "DevJuho",
+                "Red"
         ));
-        assertThat("class java.lang.String",is(Barcelona.getOverView().foundationYear.getClass().toString()));
-        assertThat("class java.lang.String",is(Barcelona.getOverView().anchorage.getClass().toString()));
-        assertThat("class java.lang.String",is(Barcelona.getOverView().teamName.getClass().toString()));
-        assertThat("class java.lang.String",is(Barcelona.getOverView().directorName.getClass().toString()));
-        assertThat("class java.lang.String",is(Barcelona.getOverView().teamColor.getClass().toString()));
+
+        assertThat(Barcelona.getOverView().getFoundationYear(), instanceOf(String.class));
+        assertThat(Barcelona.getOverView().getAnchorage(), instanceOf(String.class));
+        assertThat(Barcelona.getOverView().getTeamName(), instanceOf(String.class));
+        assertThat(Barcelona.getOverView().getDirectorName(), instanceOf(String.class));
+        assertThat(Barcelona.getOverView().getTeamColor(), instanceOf(String.class));
+
 
    }
 
     // 주호..
     @Test
     public void squardList에_플레이어가_박주호이면_TRUE() {
+        String startString ="박";
+        String middleString ="주";
+        String endString ="호";
+
         Team Liverpool = new Team();
-        Liverpool.setSquadList(new TeamSquadList.squadList(
+        Liverpool.setSquadList(new TeamSquadList(
                 "박주호"
         ));
-        assertThat("박주호", is(Liverpool.getSquadList().player));
+
+        assertThat(Liverpool.getSquadList().getPlayer(), is("박주호"));
+        assertThat("박주호", equalTo(Liverpool.getSquadList().getPlayer()));
+        assertThat("우주호", not(equalTo(Liverpool.getSquadList().getPlayer())));
+        assertThat(Liverpool.getSquadList().getPlayer(), is(startsWith("박")));
+        assertThat(Liverpool.getSquadList().getPlayer(), is(endsWith(endString)));
+        assertThat(Liverpool.getSquadList().getPlayer(), allOf(startsWith(startString), containsString(middleString), containsString(endString)));
+        assertThat(Liverpool.getSquadList().getPlayer(), hasToString("박주호"));
     }
+
+    // 주호..
+    @Test
+    public void List에_등록된_팀카운트(){
+        assertThat(TeamList.size(),is(1));
+        assertThat(TeamList, hasSize(1));
+    }
+
+    // 주호..
+    @Test
+    public void shouldHasProperty(){
+        assertThat(TeamList.get(0).getTeamStat(), hasProperty("position"));
+        assertThat(TeamList.get(0).getSquadList(), hasProperty("player"));
+        assertThat(TeamList.get(0).getOverView(), hasProperty("foundationYear"));
+    }
+
+
+
+
 
 
 

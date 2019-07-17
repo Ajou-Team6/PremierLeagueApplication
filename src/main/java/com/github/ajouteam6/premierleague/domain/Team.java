@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Team {
 
-    private TeamStat.teamStat teamStat;
-    private TeamOverView.overView overView;
-    private TeamSquadList.squadList squadList;
+    private TeamStat teamStat;
+    private TeamOverView overView;
+    private TeamSquadList squadList;
 }
