@@ -36,9 +36,21 @@ public class PlayerCompareTest {
     }
 
     @Test
-    public void twoPlayerCompareByGoalTest() {
+    public void twoPlayerCompareByGoalTest_정수형속성테스트() {
         assertThat(playerCompare.twoPlayerCompareByGoal(Heungmin_Son, Harry_kane, 0), greaterThan(0));
         assertThat(playerCompare.twoPlayerCompareByGoal(Heungmin_Son, Harry_kane, 1), lessThan(0));
+    }
+
+    @Test
+    public void twoPlayerCompareByName_스트링형속성테스트() {
+        assertThat(playerCompare.twoPlayerCompareByName(Heungmin_Son, Harry_kane, 0), lessThan(0));
+        assertThat(playerCompare.twoPlayerCompareByName(Heungmin_Son, Harry_kane, 1), greaterThan(0));
+    }
+
+    @Test
+    public void twoPlayerCompareByNationality_같은스트링일때() {
+        assertThat(playerCompare.twoPlayerCompareByNationality(Harry_kane, Harry_kane, 0), equalTo(0));
+        assertThat(playerCompare.twoPlayerCompareByNationality(Harry_kane, Harry_kane, 1), equalTo(0));
     }
 
     @Test
