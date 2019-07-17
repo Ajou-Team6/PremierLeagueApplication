@@ -6,14 +6,23 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
+//주호
 public class TeamTest {
     private List<Team> playerList = new ArrayList<Team>();
 
     //test 전에 실행
-
     @Before
-    public void setUp(){
+    public void setUp() {
         Team striker = new Team();
+        Team midFielder = new Team();
+        Team goalKeeper = new Team();
+        Team wingBack = new Team();
+
         striker.setTeamStat(new TeamStat.teamStat(
                 1,
                 1,
@@ -25,28 +34,73 @@ public class TeamTest {
                 5));
 
         striker.setOverView(new TeamOverView.overView(
-                "2019년7월17일"
+                "2019,7,17,",
+                "korea",
+                "Test",
+                "주호",
+                "Blue"));
+
+        striker.setSquadList(new TeamSquadList.squadList(
+                "박주호"
+        ));
+    }
+
+    // 주호..
+    @Test
+    public void TeamStat에_모든_변수에_숫자가_들어갈_경우_True() {
+        Team ManchesterUnited = new Team();
+        ManchesterUnited.setTeamStat(new TeamStat.teamStat(
+                1,
+                1,
+                3,
+                2,
+                1,
+                15,
+                3,
+                5
         ));
 
-
-
-
-//5개의 챔피언 객체를 만듭니다.
-        Champion topChamp = new Champion("다리우스", "탑");
-        Champion jungleChamp = new Champion("리신", "정글");
-        Champion midChamp = new Champion("르블랑", "미드");
-        Champion adcChamp = new Champion("베인", "바텀");
-        Champion supportChamp = new Champion("레오나", "바텀");
-
-        //앞서 만든 List 에 각 챔피언을 추가합니다.
-        championList.add(topChamp);
-        championList.add(jungleChamp);
-        championList.add(midChamp);
-        championList.add(adcChamp);
-        championList.add(supportChamp);
+        isStringNumManchesterUnited.getTeamStat().position
+        System.out.println(ManchesterUnited.getTeamStat().position);
+//        assertThat("class java.lang.String",is(ManchesterUnited.getOverView().foundationYear.getClass().toString()));
+//        assertThat("class java.lang.String",is(ManchesterUnited.getOverView().anchorage.getClass().toString()));
+//        assertThat("class java.lang.String",is(ManchesterUnited.getOverView().teamName.getClass().toString()));
+//        assertThat("class java.lang.String",is(ManchesterUnited.getOverView().directorName.getClass().toString()));
+//        assertThat("class java.lang.String",is(ManchesterUnited.getOverView().teamColor.getClass().toString()));
 
     }
 
+
+    // 주호..
     @Test
+    public void OverView에_모든_변수에_문자가_들어갈_경우_True() {
+        Team Barcelona = new Team();
+        Barcelona.setOverView(new TeamOverView.overView(
+                "2019,7,17,",
+                "korea",
+                "Test",
+                "주호",
+                "Blue"
+        ));
+        assertThat("class java.lang.String",is(Barcelona.getOverView().foundationYear.getClass().toString()));
+        assertThat("class java.lang.String",is(Barcelona.getOverView().anchorage.getClass().toString()));
+        assertThat("class java.lang.String",is(Barcelona.getOverView().teamName.getClass().toString()));
+        assertThat("class java.lang.String",is(Barcelona.getOverView().directorName.getClass().toString()));
+        assertThat("class java.lang.String",is(Barcelona.getOverView().teamColor.getClass().toString()));
+
+   }
+
+    // 주호..
+    @Test
+    public void squardList에_플레이어가_박주호이면_TRUE() {
+        Team Liverpool = new Team();
+        Liverpool.setSquadList(new TeamSquadList.squadList(
+                "박주호"
+        ));
+        assertThat("박주호", is(Liverpool.getSquadList().player));
+    }
+
+
+
 }
 

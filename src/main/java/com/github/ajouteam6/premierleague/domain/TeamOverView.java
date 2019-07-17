@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 // 주호
 @Data
 @Builder
-@AllArgsConstructor
+
 @NoArgsConstructor
 public class TeamOverView {// overView -> 창단연도, 연고지, 팀이름, 감독이름, 팀 컬러
-
+    @AllArgsConstructor
     static class overView {
         String foundationYear;
         String anchorage;

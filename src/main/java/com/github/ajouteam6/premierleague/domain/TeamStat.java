@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 // 주호
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
 public class TeamStat {
     @AllArgsConstructor

@@ -14,5 +14,5 @@ public class Team {
 
     private TeamStat.teamStat teamStat;
     private TeamOverView.overView overView;
-    private TeamSquadList.squadList squardList;
+    private TeamSquadList.squadList squadList;
 }
