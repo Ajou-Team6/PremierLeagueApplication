@@ -14,7 +14,7 @@ public class TeamTest {
     @Before
     public void setUp(){
         Team striker = new Team();
-        striker.setTeamStat(new Team.teamStat(
+        striker.setTeamStat(new TeamStat.teamStat(
                 1,
                 1,
                 3,
@@ -24,7 +24,7 @@ public class TeamTest {
                 3,
                 5));
 
-        striker.setOverView(new Team.overView(
+        striker.setOverView(new TeamOverView.overView(
                 "2019년7월17일"
         ));
 
