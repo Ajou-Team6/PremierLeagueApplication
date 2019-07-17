@@ -54,45 +54,86 @@ public class AttackStatsSortTest {
     @Test
     public void 득점순위가_내림차순이_아니면_에러() {
         AttackStatsSort attackStatsSort = new AttackStatsSort();
-        attackStatsSort.sortByPlayerScores(playerList);
+        attackStatsSort.sortByPlayerScores(playerList,0);
         for(int i=0;i<playerList.length-1;i++){
             assertTrue(playerList[i].getAttackStats().getGoals()>=playerList[i+1].getAttackStats().getGoals());
+        }
+    }
+    @Test
+    public void 득점순위가_오름차순이_아니면_에러() {
+        AttackStatsSort attackStatsSort = new AttackStatsSort();
+        attackStatsSort.sortByPlayerScores(playerList,1);
+        for(int i=0;i<playerList.length-1;i++){
+            assertTrue(playerList[i].getAttackStats().getGoals()<=playerList[i+1].getAttackStats().getGoals());
         }
     }
 
     @Test
     public void 어시스트_순위가_내림차순이_아니면_에러() {
         AttackStatsSort attackStatsSort = new AttackStatsSort();
-        attackStatsSort.sortByPlayerAsssits(playerList);
+        attackStatsSort.sortByPlayerAsssits(playerList,0);
         for(int i=0;i<playerList.length-1;i++){
             assertTrue(playerList[i].getAttackStats().getAssists()>=playerList[i+1].getAttackStats().getAssists());
         }
     }
+    @Test
+    public void 어시스트_순위가_오름차순이_아니면_에러() {
+        AttackStatsSort attackStatsSort = new AttackStatsSort();
+        attackStatsSort.sortByPlayerAsssits(playerList,1);
+        for(int i=0;i<playerList.length-1;i++){
+            assertTrue(playerList[i].getAttackStats().getAssists()<=playerList[i+1].getAttackStats().getAssists());
+        }
+    }
+
 
     @Test
     public void 슈팅개수_순위가_내림차순이_아니면_에러(){
         AttackStatsSort attackStatsSort = new AttackStatsSort();
-        attackStatsSort.sortByPlayerShots(playerList);
+        attackStatsSort.sortByPlayerShots(playerList,0);
         for(int i=0;i<playerList.length-1;i++){
             assertTrue(playerList[i].getAttackStats().getShots()>=playerList[i+1].getAttackStats().getShots());
+        }
+    }
+    @Test
+    public void 슈팅개수_순위가_오름차순이_아니면_에러(){
+        AttackStatsSort attackStatsSort = new AttackStatsSort();
+        attackStatsSort.sortByPlayerShots(playerList,1);
+        for(int i=0;i<playerList.length-1;i++){
+            assertTrue(playerList[i].getAttackStats().getShots()<=playerList[i+1].getAttackStats().getShots());
         }
     }
 
     @Test
     public void 유효슈팅개수_순위가_내림차순이_아니면_에러(){
         AttackStatsSort attackStatsSort = new AttackStatsSort();
-        attackStatsSort.sortByPlayerShotsOnTarget(playerList);
+        attackStatsSort.sortByPlayerShotsOnTarget(playerList,0);
         for(int i=0;i<playerList.length-1;i++){
             assertTrue(playerList[i].getAttackStats().getShotsOnTarget()>=playerList[i+1].getAttackStats().getShotsOnTarget());
+        }
+    }
+    @Test
+    public void 유효슈팅개수_순위가_오름차순이_아니면_에러(){
+        AttackStatsSort attackStatsSort = new AttackStatsSort();
+        attackStatsSort.sortByPlayerShotsOnTarget(playerList,1);
+        for(int i=0;i<playerList.length-1;i++){
+            assertTrue(playerList[i].getAttackStats().getShotsOnTarget()<=playerList[i+1].getAttackStats().getShotsOnTarget());
         }
     }
 
     @Test
     public void 패스개수_순위가_내림차순이_아니면_에러(){
         AttackStatsSort attackStatsSort = new AttackStatsSort();
-        attackStatsSort.sortByPlayerPasses(playerList);
+        attackStatsSort.sortByPlayerPasses(playerList,0);
         for(int i=0;i<playerList.length-1;i++){
             assertTrue(playerList[i].getAttackStats().getPasses()>=playerList[i+1].getAttackStats().getPasses());
+        }
+    }
+    @Test
+    public void 패스개수_순위가_오름차순이_아니면_에러(){
+        AttackStatsSort attackStatsSort = new AttackStatsSort();
+        attackStatsSort.sortByPlayerPasses(playerList,1);
+        for(int i=0;i<playerList.length-1;i++){
+            assertTrue(playerList[i].getAttackStats().getPasses()<=playerList[i+1].getAttackStats().getPasses());
         }
     }
 }
