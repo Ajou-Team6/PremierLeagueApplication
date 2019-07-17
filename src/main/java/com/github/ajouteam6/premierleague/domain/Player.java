@@ -1,4 +1,4 @@
-package com.github.ajouteam6.premierleague.domain.player;
+package com.github.ajouteam6.premierleague.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

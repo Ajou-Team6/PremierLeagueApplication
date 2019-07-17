@@ -1,10 +1,8 @@
 package com.github.ajouteam6.premierleague.service;
 
-import com.github.ajouteam6.premierleague.domain.player.Player;
+import com.github.ajouteam6.premierleague.domain.Player;
 import lombok.Builder;
 import lombok.Data;
-
-import java.util.Comparator;
 
 // 종인
 @Builder

@@ -1,4 +1,4 @@
-package com.github.ajouteam6.premierleague.domain.player.team;
+package com.github.ajouteam6.premierleague.domain.team;
 
 import com.github.ajouteam6.premierleague.domain.team.Team;
 import com.github.ajouteam6.premierleague.domain.team.TeamOverView;
