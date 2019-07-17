@@ -22,7 +22,19 @@ public class PlayerCompare {
         return secondPlayer;
     }
 
-    private int getPlayerAttackPoint(Player firstPlayer) {
-        return firstPlayer.getAttackStats().getGoals() + firstPlayer.getAttackStats().getAssists();
+    public Player twoPlayerCompareByDefencePoint(Player firstPlayer, Player secondPlayer) {
+        int firstPlayerDefencePoint = getPlayerDefencePoint(firstPlayer);
+        int secondPlayerDefencePoint = getPlayerDefencePoint(secondPlayer);
+        if (firstPlayerDefencePoint > secondPlayerDefencePoint) return firstPlayer;
+        return secondPlayer;
+    }
+
+    private int getPlayerDefencePoint(Player player) {
+        return player.getDefenceStats().getDualsWon() + player.getDefenceStats().getTackles() + player.getDefenceStats().getClearances() +
+                player.getDefenceStats().getInterception() + player.getDefenceStats().getClearances();
+    }
+
+    private int getPlayerAttackPoint(Player player) {
+        return player.getAttackStats().getGoals() + player.getAttackStats().getAssists();
     }
 }
