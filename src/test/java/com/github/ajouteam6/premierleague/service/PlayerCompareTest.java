@@ -1,9 +1,9 @@
 package com.github.ajouteam6.premierleague.service;
 
-import com.github.ajouteam6.premierleague.domain.AttackStats;
-import com.github.ajouteam6.premierleague.domain.DefenceStats;
-import com.github.ajouteam6.premierleague.domain.PersonalDetails;
-import com.github.ajouteam6.premierleague.domain.Player;
+import com.github.ajouteam6.premierleague.domain.player.AttackStats;
+import com.github.ajouteam6.premierleague.domain.player.DefenceStats;
+import com.github.ajouteam6.premierleague.domain.player.PersonalDetails;
+import com.github.ajouteam6.premierleague.domain.player.Player;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,22 +23,34 @@ public class PlayerCompareTest {
     public void initializeTestAttributesAboutCompare() {
         playerCompare = PlayerCompare.builder().build();
         Harry_kane = Player.builder()
-                .personalDetails(new PersonalDetails("Harry Kane", "Tottenham Hotspur", 7, "Forward", "UK", 23))
+                .personalDetails(new PersonalDetails("Harry Kane", "Tottenham Hotspur", 7, "Forward", "UK", 23, 177))
                 .attackStats(new AttackStats(17, 4,102, 46, 20))
                 .defenceStats(new DefenceStats(12, 9, 1, 5, 22, 14))
                 .build();
 
         Heungmin_Son = Player.builder()
-                .personalDetails(new PersonalDetails("Son Heung-Min", "Tottenham Hotspur", 7, "Forward", "ROK", 23))
+                .personalDetails(new PersonalDetails("Son Heung-Min", "Tottenham Hotspur", 7, "Forward", "ROK", 23, 178))
                 .attackStats(new AttackStats(12, 6,74, 29, 25))
                 .defenceStats(new DefenceStats(4, 23, 8, 10, 11, 4))
                 .build();
     }
 
     @Test
-    public void twoPlayerCompareByGoalTest() {
+    public void twoPlayerCompareByGoalTest_정수형속성테스트() {
         assertThat(playerCompare.twoPlayerCompareByGoal(Heungmin_Son, Harry_kane, 0), greaterThan(0));
         assertThat(playerCompare.twoPlayerCompareByGoal(Heungmin_Son, Harry_kane, 1), lessThan(0));
+    }
+
+    @Test
+    public void twoPlayerCompareByName_스트링형속성테스트() {
+        assertThat(playerCompare.twoPlayerCompareByName(Heungmin_Son, Harry_kane, 0), lessThan(0));
+        assertThat(playerCompare.twoPlayerCompareByName(Heungmin_Son, Harry_kane, 1), greaterThan(0));
+    }
+
+    @Test
+    public void twoPlayerCompareByNationality_같은스트링일때() {
+        assertThat(playerCompare.twoPlayerCompareByNationality(Harry_kane, Harry_kane, 0), equalTo(0));
+        assertThat(playerCompare.twoPlayerCompareByNationality(Harry_kane, Harry_kane, 1), equalTo(0));
     }
 
     @Test
