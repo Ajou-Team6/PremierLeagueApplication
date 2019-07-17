@@ -14,6 +14,6 @@ public class PersonalDetails {
     private String team;
     private int backNumber;
     private String position;
-    private String country;
+    private String nationality;
     private int age;
 }
