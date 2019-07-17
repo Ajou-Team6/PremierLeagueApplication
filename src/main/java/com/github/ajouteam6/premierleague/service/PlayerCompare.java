@@ -9,24 +9,31 @@ import lombok.Data;
 @Data
 public class PlayerCompare {
 
-    public Player twoPlayerCompareByGoal(Player firstPlayer, Player secondPlayer) {
-        if (firstPlayer.getAttackStats().getGoals() > secondPlayer.getAttackStats().getGoals())
-            return firstPlayer;
-        return secondPlayer;
+    // Condition 0은 내림차순, 1은 오름차순
+    public int twoPlayerCompareByGoal(Player firstPlayer, Player secondPlayer, int condition) {
+        logCompareMethods("Goal: ", firstPlayer, secondPlayer, firstPlayer.getAttackStats().getGoals(), secondPlayer.getAttackStats().getGoals());
+        if(isDescendingOrder(condition)) return secondPlayer.getAttackStats().getGoals() - firstPlayer.getAttackStats().getGoals();
+        return firstPlayer.getAttackStats().getGoals() - secondPlayer.getAttackStats().getGoals();
     }
 
-    public Player twoPlayerCompareByAttackPoint(Player firstPlayer, Player secondPlayer) {
+    public int twoPlayerCompareByAttackPoint(Player firstPlayer, Player secondPlayer, int condition) {
         int firstPlayerAttackPoint = getPlayerAttackPoint(firstPlayer);
         int secondPlayerAttackPoint = getPlayerAttackPoint(secondPlayer);
-        if (firstPlayerAttackPoint > secondPlayerAttackPoint) return firstPlayer;
-        return secondPlayer;
+        logCompareMethods("AP: ", firstPlayer, secondPlayer, firstPlayerAttackPoint,secondPlayerAttackPoint);
+        if(isDescendingOrder(condition)) return secondPlayerAttackPoint - firstPlayerAttackPoint;
+        return firstPlayerAttackPoint - secondPlayerAttackPoint;
     }
 
-    public Player twoPlayerCompareByDefencePoint(Player firstPlayer, Player secondPlayer) {
+    public int twoPlayerCompareByDefencePoint(Player firstPlayer, Player secondPlayer, int condition) {
         int firstPlayerDefencePoint = getPlayerDefencePoint(firstPlayer);
         int secondPlayerDefencePoint = getPlayerDefencePoint(secondPlayer);
-        if (firstPlayerDefencePoint > secondPlayerDefencePoint) return firstPlayer;
-        return secondPlayer;
+        logCompareMethods("DP: ", firstPlayer, secondPlayer, firstPlayerDefencePoint,secondPlayerDefencePoint);
+        if(isDescendingOrder(condition)) return secondPlayerDefencePoint - firstPlayerDefencePoint;
+        return firstPlayerDefencePoint - secondPlayerDefencePoint;
+    }
+
+    private boolean isDescendingOrder(int condition) {
+        return condition == 0;
     }
 
     private int getPlayerDefencePoint(Player player) {
@@ -36,5 +43,10 @@ public class PlayerCompare {
 
     private int getPlayerAttackPoint(Player player) {
         return player.getAttackStats().getGoals() + player.getAttackStats().getAssists();
+    }
+
+    private void logCompareMethods(String logWhat, Player firstPlayer, Player secondPlayer, int firstPoint, int secondPoint) {
+        System.out.println(logWhat + firstPlayer.getPersonalDetails().getName() + " : " + firstPoint
+                + ", " + secondPlayer.getPersonalDetails().getName() + " : " + secondPoint);
     }
 }
