@@ -5,13 +5,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//연호
+//명수
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Player {
-    private PersonalDetails personalDetails;
-    private AttackStats attackStats;
-    private DefenceStats defenceStats;
+public class PersonalDetails {
+    private String name;
+    private String team;
+    private int backNumber;
+    private String position;
+    private String country;
+    private int age;
 }
