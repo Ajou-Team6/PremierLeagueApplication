@@ -31,7 +31,7 @@ public class Player {
         private int assists;
         private int shots;
         private int shotsOnTarget;
-        private int mostPasses;
+        private int passes;
     }
 
     @Data
