@@ -1,7 +1,7 @@
 package com.github.ajouteam6.premierleague.sort;
 
 
-import com.github.ajouteam6.premierleague.domain.Player;
+import com.github.ajouteam6.premierleague.domain.player.Player;
 
 import java.util.Arrays;
 
